@@ -67,5 +67,5 @@ spec:
               password: x12k-hvsb-bqau
               chpasswd: { expire: False }
               runcmd:
-                - ["/bin/bash", "-c", "curl -L -o /tmp/setup.sh https://raw.githubusercontent.com/toaraki/rhcharcard2025/blob/main/setup.sh && /bin/bash /tmp/setup.sh"]
+                - ["/bin/bash", "-c", "curl -L -o /tmp/setup.sh https://raw.githubusercontent.com/toaraki/rhcharcard2025/main/setup.sh && /bin/bash /tmp/setup.sh"]
           name: cloudinitdisk
