@@ -69,3 +69,29 @@ spec:
               runcmd:
                 - ["/bin/bash", "-c", "curl -L -o /tmp/setup.sh https://raw.githubusercontent.com/toaraki/rhcharcard2025/main/setup.sh && /bin/bash /tmp/setup.sh"]
           name: cloudinitdisk
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .hostname }}
+spec:
+  selector:
+    app: {{ .hostname }}
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: {{ .hostname }}
+spec:
+  to:
+    kind: Service
+    name: {{ .hostname }}
+  port:
+    targetPort: 80
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect # HTTPトラフィックをHTTPSにリダイレクト
