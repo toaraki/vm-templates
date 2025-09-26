@@ -52,7 +52,7 @@ spec:
           bootloader:
             efi: {}
         memory:
-          guest: 512Mi
+          guest: 256Mi
       networks:
         - name: default
           pod: {}
