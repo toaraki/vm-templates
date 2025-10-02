@@ -65,7 +65,7 @@ spec:
               #cloud-config
               hostname: {{ .hostname }}
               user: fedora
-              password: x12k-hvsb-bqau
+              password: {{ .password }}
               chpasswd: { expire: False }
               runcmd:
                 - ["/bin/bash", "-c", "curl -L -o /tmp/setup.sh https://raw.githubusercontent.com/toaraki/rhcharcard2025/main/setup.sh && /bin/bash /tmp/setup.sh"]
